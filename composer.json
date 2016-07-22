@@ -1,0 +1,12 @@
+{
+  "name": "ioncodes/com.ionix.beautysharphp",
+  "description": "Online syntax highlighting tool",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "ion, tremendoustiger",
+      "email": "ionix@protonmail.com"
+    }
+  ]
+}
