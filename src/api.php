@@ -17,7 +17,13 @@ if(isset($_POST['addsource']) && isset($_POST['token'])) { // everything fine
     $source = $_POST['addsource'];
     $token = $_POST['token'];
 
-    $result = mysqli_query($conn, "SELECT ".$token." FROM tokens"); // check token exists
+    $stmt = $conn->prepare("SELECT * FROM tokens WHERE token=?");
+    $stmt->bind_param(1, $bToken);
+
+    $bToken = $token;
+
+    $result = $stmt->execute();
+
     if($result) {
         $source = "Console.Write('Hello World');"; // testing, dev...
         echo $source;
