@@ -1,11 +1,10 @@
 <script src="js/highlight.pack.js" type="application/javascript" ></script>
 
 <?php
-$servername = "localhost";
-$username = "bsharpapi";
-$password = "tTLtHXG232FHvLTK";
-
 try {
+    $servername = "localhost";
+    $username = "bsharpapi";
+    $password = "tTLtHXG232FHvLTK";
     $conn = new PDO("mysql:host=$servername;dbname=beautysharp", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
