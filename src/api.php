@@ -4,7 +4,7 @@
 if(isset($_POST["addsource"]) && isset($_POST["token"])) { // everything fine
     $source = $_POST['addsource'];
     $token = $_POST{'token'};
-    $source = "Console.Write('Hello World');"; // testing, dev
+    $source = "Console.Write('Hello World');"; // testing, dev...
     echo $source;
     
     exit();
