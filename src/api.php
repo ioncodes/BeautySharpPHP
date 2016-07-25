@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 
 // let's have some fun...
 
-if(isset($_POST["addsource"]) && isset($_POST["token"])) { // everything fine
+if(isset($_POST['addsource']) && isset($_POST['token'])) { // everything fine
     $source = $_POST['addsource'];
     $token = $_POST['token'];
     $source = "Console.Write('Hello World');"; // testing, dev...
