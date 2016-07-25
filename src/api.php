@@ -1,18 +1,15 @@
 <script src="js/highlight.pack.js" type="application/javascript" ></script>
 
 <?php
-try {
-    $servername = "localhost";
-    $username = "bsharpapi";
-    $password = "tTLtHXG232FHvLTK";
-    $conn = new PDO("mysql:host=$servername;dbname=beautysharp", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
-{
+$servername = "localhost";
+$username = "bsharpapi";
+$password = "tTLtHXG232FHvLTK";
+
+$conn = mysqli_connect($servername, $username, $password);
+
+if ($conn->connect_error) {
     die("Server down"); // srsly?
 }
-
 
 // let's have some fun...
 
