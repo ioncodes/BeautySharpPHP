@@ -16,12 +16,19 @@ if ($conn->connect_error) {
 if(isset($_POST['addsource']) && isset($_POST['token'])) { // everything fine
     $source = $_POST['addsource'];
     $token = $_POST['token'];
-    $source = "Console.Write('Hello World');"; // testing, dev...
-    echo $source;
 
-    exit();
+    $result = mysqli_query($conn, "SELECT ".$token." FROM tokens"); // check token exists
+    if($result) {
+        $source = "Console.Write('Hello World');"; // testing, dev...
+        echo $source;
+
+        exit();
+    }
+    else {
+        die("Token does not exist!");
+    }
 }
 else
 {
-    die("Unauthorized"); // Fuck you!
+    die("Wrong POST"); // Fuck you!
 }
