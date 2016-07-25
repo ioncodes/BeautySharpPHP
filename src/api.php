@@ -1,7 +1,7 @@
 <script src="js/highlight.pack.js" type="application/javascript" ></script>
 
 <?php
-$servername = "localhost";
+$servername = "beautysharp";
 $username = "bsharpapi";
 $password = "tTLtHXG232FHvLTK";
 
