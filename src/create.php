@@ -12,9 +12,9 @@ try {
 
     // let's have some fun...
 
-    if(isset($_POST['addsource']) && isset($_POST['token'])) { // everything fine
-        $source = $_POST['addsource'];
-        $token = $_POST['token'];
+    if(isset($_GET['token']) && isset($_POST['source'])) { // create paste
+        $source = $_POST['source'];
+        $token = $_GET['token'];
 
         $stmt = $pdo->prepare("SELECT * FROM tokens WHERE token=?");
         $stmt->execute(array($token));
@@ -31,6 +31,9 @@ try {
         else {
             die("Token does not exist!");
         }
+    }
+    else {
+        die("Wrong request.");
     }
 } catch (PDOException $e) {
     throw new PDOException("Error  : " .$e->getMessage());
