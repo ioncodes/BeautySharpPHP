@@ -1,11 +1,12 @@
 <script src="js/highlight.pack.js" type="application/javascript" ></script>
 
 <?php
-$servername = "beautysharp";
+$hostname = "localhost";
+$dbname = "beautysharp";
 $username = "bsharpapi";
 $password = "tTLtHXG232FHvLTK";
 
-$conn = mysqli_connect($servername, $username, $password);
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Server down"); // srsly?
