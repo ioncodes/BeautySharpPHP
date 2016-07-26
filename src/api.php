@@ -6,34 +6,32 @@ $dbname = "beautysharp";
 $username = "bsharpapi";
 $password = "tTLtHXG232FHvLTK";
 
-$conn = mysqli_connect($hostname, $username, $password, $dbname);
+try {
+    $pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $dbname, $username, $password, array(PDO::ATTR_EMULATE_PREPARES => false,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-if ($conn->connect_error) {
-    die("Server down"); // srsly?
-}
+    // let's have some fun...
 
-// let's have some fun...
+    if(isset($_POST['addsource']) && isset($_POST['token'])) { // everything fine
+        $source = $_POST['addsource'];
+        $token = $_POST['token'];
 
-if(isset($_POST['addsource']) && isset($_POST['token'])) { // everything fine
-    $source = $_POST['addsource'];
-    $token = $_POST['token'];
+        $stmt = $pdo->prepare("SELECT * FROM tokens WHERE token=?");
+        $stmt->execute(array($token));
 
-    $stmt = $conn->prepare("SELECT * FROM tokens WHERE token=?");
-    $stmt->bind_param("s", $token);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $result = $stmt->execute();
+        if($result) {
+            $source = "Console.Write('Hello World');"; // testing, dev...
 
-    if($result) {
-        $source = "Console.Write('Hello World');"; // testing, dev...
-        echo $source;
+            echo $source;
 
-        exit();
+            exit();
+        }
+        else {
+            die("Token does not exist!");
+        }
     }
-    else {
-        die("Token does not exist!");
-    }
-}
-else
-{
-    die("Wrong POST"); // Fuck you!
+} catch (PDOException $e) {
+    throw new PDOException("Error  : " .$e->getMessage());
 }
