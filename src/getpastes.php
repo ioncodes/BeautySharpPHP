@@ -1,5 +1,3 @@
-<script src="js/highlight.pack.js" type="application/javascript" ></script>
-
 <?php
 $hostname = "localhost";
 $dbname = "beautysharp";
@@ -20,9 +18,17 @@ try {
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        echo $result;
+        if($result) { // token exists
+            $stmt = $pdo->prepare("SELECT pastes FROM tokens WHERE token=?");
+            $stmt->execute(array($token));
 
-        exit();
+            $result = $stmt->fetch();
+            echo $result["pastes"]; // print pastes
+            exit();
+        }
+        else {
+            die("Token does not exist.");
+        }
     }
     else {
         die("Wrong request.");
