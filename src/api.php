@@ -19,9 +19,7 @@ if(isset($_POST['addsource']) && isset($_POST['token'])) { // everything fine
     $token = $_POST['token'];
 
     $stmt = $conn->prepare("SELECT * FROM tokens WHERE token=?");
-    $stmt->bind_param(1, $bToken);
-
-    $bToken = $token;
+    $stmt->bind_param("s", $token);
 
     $result = $stmt->execute();
 
