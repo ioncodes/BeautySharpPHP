@@ -1,5 +1,3 @@
-<script src="js/highlight.pack.js" type="application/javascript" ></script>
-
 <?php
 $hostname = "localhost";
 $dbname = "beautysharp";
