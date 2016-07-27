@@ -39,7 +39,7 @@ try {
                 $stmt = $pdo->prepare("UPDATE tokens SET pastes=? WHERE token=?");
                 $stmt->execute(array($pastes, $token));
 
-                $url = "http://www.ioncodes.com/?paste=".$id;
+                $url = "http://www.ioncodes.com/?paste=".str_replace(".csharp", "", $id);
                 echo $url;
                 exit();
             } else {
