@@ -20,16 +20,31 @@ try {
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($result) {
-            $id = uniqid(rand(), true) . '.cs';
+            $id = uniqid(rand(), true) . '.csharp';
             $path = './pastes/'.$id;
-            echo $path;
 
             if(file_put_contents($path, $source) != false) {
-                echo "Done";
+                $stmt = $pdo->prepare("SELECT pastes FROM tokens WHERE token=?");
+                $stmt->execute(array($token));
+
+                $result = $stmt->fetch();
+                $pastes = $result["pastes"];
+
+                if($pastes == "") {
+                    $pastes = str_replace(".csharp", "", $id);
+                } else {
+                    $pastes = $pastes.",".str_replace(".csharp", "", $id);
+                }
+
+                $stmt = $pdo->prepare("UPDATE tokens SET pastes=? WHERE token=?");
+                $stmt->execute(array($pastes, $token));
+
+                $url = "http://www.ioncodes.com/BeautySharp/pastes/".$id;
+                echo $url;
+                exit();
             } else {
                 die("Error creating file.");
             }
-            exit();
         }
         else {
             die("Token does not exist!");
