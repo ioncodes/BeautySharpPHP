@@ -20,10 +20,15 @@ try {
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if($result) {
-            $source = "Console.Write('Hello World');"; // testing, dev...
+            $id = uniqid(rand(), true) . '.cs';
+            $path = './pastes/'.$id;
+            echo $path;
 
-            echo $source;
-
+            if(file_put_contents($path, $source) != false) {
+                echo "Done";
+            } else {
+                die("Error creating file.");
+            }
             exit();
         }
         else {
