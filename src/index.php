@@ -6,9 +6,9 @@ $id = $_REQUEST["paste"];
 
 $url = "pastes/".$id.".csharp"; //TODO: File ending should be "*.cs" (optional)
 
-//$content = file_get_contents($url);
+$content = file_get_contents($url);
 
-$content = "using System;
+/*$content = "using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -293,7 +293,7 @@ namespace JodelBooster
 
     }
 }
-";
+";*/
 
 $colored_content = $content;
 
