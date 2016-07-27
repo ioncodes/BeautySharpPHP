@@ -12,9 +12,8 @@ if(isset($_POST['id'])) { // create token
         try {
             $pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $dbname, $username, $password, array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $stmt = $pdo->prepare("INSERT INTO tokens (token) VALUES (?)");
-            $stmt->execute(array($token));
+            $result = $stmt->execute(array($token));
 
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if($result) {
                 echo $token;
                 exit();

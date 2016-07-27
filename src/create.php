@@ -54,5 +54,5 @@ try {
         die("Wrong request.");
     }
 } catch (PDOException $e) {
-    throw new PDOException("Error  : " .$e->getMessage());
+    die("DB Error.");
 }
