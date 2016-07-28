@@ -11,7 +11,7 @@ try {
     // let's have some fun...
 
     if(isset($_GET['token']) && isset($_POST['source'])) { // create paste
-        $source = $_POST['source'];
+        $source = urldecode($_POST['source']);
         $token = $_GET['token'];
 
         $stmt = $pdo->prepare("SELECT * FROM tokens WHERE token=?");

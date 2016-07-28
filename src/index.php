@@ -3,6 +3,7 @@
     pre
     {
         position:fixed;
+        overflow: auto;
         padding:0;
         margin:0;
 
