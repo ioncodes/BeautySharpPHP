@@ -1,19 +1,5 @@
 <link rel="stylesheet" href="style/dracula.css">
-<style>
-    pre
-    {
-        position:fixed;
-        overflow: auto;
-        padding:0;
-        margin:0;
-
-        top:0;
-        left:0;
-
-        width: 100%;
-        height: 100%;
-    }
-</style>
+<link rel="stylesheet" href="style/style.css">
 
 <?php
 $id = $_REQUEST["paste"];

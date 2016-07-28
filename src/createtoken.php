@@ -1,8 +1,6 @@
 <?php
-$hostname = "localhost";
-$dbname = "beautysharp";
-$username = "bsharpapi";
-$password = "tTLtHXG232FHvLTK";
+
+require_once ("connect.php");
 
 if(isset($_POST['id'])) { // create token
     $id = $_POST['id'];

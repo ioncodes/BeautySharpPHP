@@ -1,14 +1,7 @@
 <?php
-$hostname = "localhost";
-$dbname = "beautysharp";
-$username = "bsharpapi";
-$password = "tTLtHXG232FHvLTK";
 
 try {
-    $pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $dbname, $username, $password, array(PDO::ATTR_EMULATE_PREPARES => false,
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-
-    // let's have some fun...
+    require_once ("connect.php");
 
     if(isset($_GET['token'])) { // get pastes
         $token = $_GET['token'];
