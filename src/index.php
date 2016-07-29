@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="style/dracula.css">
 <link rel="stylesheet" href="style/style.css">
-<link rel="stylesheet" href="style/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="css/perfect-scrollbar.min.css">
 
 <?php
 $id = $_REQUEST["paste"];
