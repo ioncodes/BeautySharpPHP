@@ -9,7 +9,7 @@ $url = "pastes/".$id.".csharp"; //TODO: File ending should be "*.cs" (optional)
 
 $content = file_get_contents($url);
 
-echo '<pre><code class="cs">'.$content.'</code></pre>';
+echo '<pre><code class="cs">'.str_replace(array("<", ">"), array("&lt;", "&gt;"), $content).'</code></pre>';
 ?>
 <!--<script type="application/javascript" src="js/jquery-3.1.0.min.js" ></script>-->
 <script type="application/javascript" src="js/highlight.pack.js" ></script>
