@@ -4,7 +4,7 @@ try {
     require_once ("connect.php");
 
     if(isset($_GET['token']) && isset($_POST['source'])) { // create paste
-        $source = urldecode($_POST['source']);
+        $source = $_POST['source'];
         $token = $_GET['token'];
 
         $stmt = $pdo->prepare("SELECT * FROM tokens WHERE token=?");
